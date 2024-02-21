@@ -3,4 +3,9 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="com.example.SBB.HelloLombok"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
 </qualifiedTypeNameHistroy>
