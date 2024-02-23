@@ -15,6 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.SBB.answer.Answer;
+import com.example.SBB.answer.AnswerRepository;
+import com.example.SBB.question.Question;
+import com.example.SBB.question.QuestionRepository;
+
 @SpringBootTest
 class SbbApplicationTests {
 	
@@ -112,7 +117,7 @@ class SbbApplicationTests {
 		Question q = oq.get();
 		
 		Answer a = new Answer();
-		a.setContent("`네 자동으로 생성됩니다.");
+		a.setContent("네 자동으로 생성됩니다.");
 		// 어떤 질문의 답변인지 객체가 필요함
 		a.setQuestion(q);
 		a.setCreateDate(LocalDateTime.now());
