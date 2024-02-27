@@ -25,4 +25,10 @@ public class QuestionController {
 		return "question_list";
 	}
 
+	// 상세 페이지
+	@GetMapping("/question/detail/{id}")
+	public String detail(Model.model, @PathVariable("id") Integer id) {
+		return "question_detail";
+	}
+
 }

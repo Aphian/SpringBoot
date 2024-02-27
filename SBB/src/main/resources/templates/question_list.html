@@ -10,7 +10,10 @@
 </table>
 <tbody>
 	<tr th:each="question : ${questionList}">
-		<td th:text="${question.subject}"></td>
+		{% comment %} <td th:text="${question.subject}"></td> {% endcomment %}
+		<td>
+			<a th:href="@{|/question/detail/{question.id}|}" th:text="{$question.subject}"></a>
+		</td>
 		<td th:text="${question.createDate}"></td>
 	</tr>
 </tbody>
