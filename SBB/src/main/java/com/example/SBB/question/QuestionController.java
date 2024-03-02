@@ -1,5 +1,7 @@
 package com.example.SBB.question;
 
+import com.example.SBB.answer.AnswerForm;
+
 import java.util.List;
 import jakarta.validation.Valid;
 
@@ -36,7 +38,7 @@ public class QuestionController {
 	// 상세 페이지
 	// @GetMapping("/question/detail/{id}")
 	@GetMapping(value = "/detail/{id}")
-	public String detail(Model.model, @PathVariable("id") Integer id) {
+	public String detail(Model.model, @PathVariable("id") Integer id, AnswerForm answerForm) {
 		Question question = this.questionService.getQuestion(id);
 		model.addAttribute("question", question);
 		return "question_detail";
