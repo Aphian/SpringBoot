@@ -1,6 +1,7 @@
 package com.example.SBB.question;
 
 import java.util.List;
+import jakarta.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParm;
+import org.springframework.web.bind.annotation.BindingResult;
 //import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
@@ -41,8 +43,14 @@ public class QuestionController {
 	}
 
 	@GetMapping("/create")
-	public String questionCreate(@RequestParm(value="subject") String subject, @RequestParm(value="content") String content) {
-		this.questionService.create(subject, content);
+	// public String questionCreate(@RequestParm(value="subject") String subject, @RequestParm(value="content") String content) {
+	// public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult) {
+	public String questionCreate(QuestionForm questionForm) {
+		if (bindingResult.hasErros) {
+			return "question_form";
+		}
+		// this.questionService.create(subject, content);
+		this.questionService(QuestionForm.getSubject(), questionForm.getContent());
 		return "redirect:/question/list";
 	}
 
