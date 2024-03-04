@@ -11,7 +11,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="question, loop : ${questionList}">
+				<tr th:each="question, loop : ${paging}">
 					{% comment %} <td th:text="${question.subject}"></td> {% endcomment %}
 					<td th:text="${loop.count}"></td>
 					<td>
@@ -22,6 +22,12 @@
 				</tr>
 			</tbody>
 		</table>
+		<!-- 페이징처리 시작 -->
+		<div th:if="${!paging.isEmpty()}">
+			<ul>
+				
+			</ul>
+		</div>
 		<a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
 	</div>
 </html>

@@ -150,6 +150,16 @@ class SbbApplicationTests {
 		assertEquals("네 자동으로 생성됩니다.", answerList.get(0).getContent());
 	}
 
+	// 대량 테스트 케이스
+	@Test
+	void testJpa13() {
+		for (int i = 1; i <= 300; i++) {
+			String subject = String.format("테스트 데이터:[$03d]", i);
+			String content = "내용";
+			this.questionRepository.create(subject, content);
+		}
+	}
+
 	@Test
 	void contextLoads() {
 	}
