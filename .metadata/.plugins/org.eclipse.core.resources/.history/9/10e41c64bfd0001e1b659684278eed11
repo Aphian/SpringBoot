@@ -1,7 +1,0 @@
-package com.example.SBB;
-
-import java.time.LocalDataTime;
-
-public class Question {
-
-}

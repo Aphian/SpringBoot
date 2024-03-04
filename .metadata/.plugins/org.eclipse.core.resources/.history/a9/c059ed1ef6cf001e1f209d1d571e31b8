@@ -1,8 +1,0 @@
-package com.example.SBB;
-
-import lombok.Getter;
-import lombok.Setter;
-
-public class HelloLombok {
-
-}
