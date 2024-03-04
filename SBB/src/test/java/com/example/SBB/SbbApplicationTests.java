@@ -20,6 +20,8 @@ import com.example.SBB.answer.AnswerRepository;
 import com.example.SBB.question.Question;
 import com.example.SBB.question.QuestionRepository;
 
+import com.example.SBB.question.QuestionService;
+
 @SpringBootTest
 class SbbApplicationTests {
 	
@@ -28,6 +30,9 @@ class SbbApplicationTests {
 	
 	@Autowired
 	private AnswerRepository answerRepository;
+	
+	@Autowired
+	private QuestionService questionService;
 	
 	// 입력 Create
 	@Test
@@ -156,7 +161,7 @@ class SbbApplicationTests {
 		for (int i = 1; i <= 300; i++) {
 			String subject = String.format("테스트 데이터:[$03d]", i);
 			String content = "내용";
-			this.questionRepository.create(subject, content);
+			this.questionService.create(subject, content);
 		}
 	}
 
