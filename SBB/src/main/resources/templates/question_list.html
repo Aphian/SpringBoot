@@ -12,10 +12,12 @@
 			</thead>
 			<tbody>
 				<tr th:each="question, loop : ${paging}">
-					{% comment %} <td th:text="${question.subject}"></td> {% endcomment %}
+					<!-- <td th:text="${question.subject}"></td> -->
+					<td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
 					<td th:text="${loop.count}"></td>
 					<td>
 						<a th:href="@{|/question/detail/{question.id}|}" th:text="{$question.subject}"></a>
+						<span class="text-danger small ms-2" th:if="${#list.size(question.answerList) > 0}" th:text="${#lists.size(question.answerList)}"></span>
 					</td>
 					<td th:text="${question.createDate}"></td>
 					<td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
@@ -25,7 +27,22 @@
 		<!-- 페이징처리 시작 -->
 		<div th:if="${!paging.isEmpty()}">
 			<ul>
-				
+				<li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+                <a class="page-link"
+                    th:href="@{|?page=${paging.number-1}|}">
+                    <span>이전</span>
+                </a>
+            </li>
+            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                th:classappend="${page == paging.number} ? 'active'" 
+                class="page-item">
+                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+            </li>
+            <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+                <a class="page-link" th:href="@{|?page=${paging.number+1}|}">
+                    <span>다음</span>
+                </a>
+            </li>
 			</ul>
 		</div>
 		<a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>

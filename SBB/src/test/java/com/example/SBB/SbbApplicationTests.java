@@ -144,7 +144,7 @@ class SbbApplicationTests {
 	// 테스트 코드에서 오류를 해결하기 위해 Transactional 애너테이션 사용
 	@Transactional
 	@Test
-	void testJap12() {
+	void testJpa12() {
 		Optional<Question> oq = this.questionRepository.findById(1);
 		assertTrue(oq.isPresent());
 		Question q = oq.get();
