@@ -46,7 +46,6 @@ INDEX VERSION 1.134+C:\Users\k0106\JavaSpringboot\SpringBoot\.metadata\.plugins\
 902955688.index
 1251766308.index
 2404905211.index
-2499343060.index
 1714020675.index
 1772792056.index
 1341450582.index
