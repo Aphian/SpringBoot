@@ -9,6 +9,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 
+// 비빌먼호 암호화 라이브러리
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -25,4 +29,9 @@ public class SecurityConfig {
         	;
         return http.build();
     }
+	
+	@Bean
+	PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 }
