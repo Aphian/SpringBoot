@@ -3,7 +3,9 @@ package com.example.SBB.question;
 import java.util.List;
 import java.util.Optional;
 import java.time.LocalDateTime;
+
 import com.example.SBB.DataNotFoundException;
+import com.example.SBB.user.SiteUser;
 
 import org.springframework.stereotype.Service;
 
@@ -32,11 +34,12 @@ public class QuestionService {
         }
     }
 
-    public void create(String subject, String content) {
+    public void create(String subject, String content, SiteUser user) {
         Question q = new Question();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
+        q.setAuthor(user);
         this.questionRepository.save(q);
     }
 
