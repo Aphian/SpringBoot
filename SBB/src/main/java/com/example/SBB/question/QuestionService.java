@@ -47,4 +47,16 @@ public class QuestionService {
         Pageable pageable = PageRequest.of(page, 10);
         return this.questionRepository.findAll(pageable);
     }
+    
+    public void modify(Question question, String subject, String content) {
+    	question.setSubject(subject);
+    	question.setContent(content);
+    	question.setModifyData(LocalDateTime.now());
+    	this.questionRepository.save(question);
+    }
+    
+    public void delete(Question question) {
+    	this.questionRepository.delete(question);
+    }
+    
 }
