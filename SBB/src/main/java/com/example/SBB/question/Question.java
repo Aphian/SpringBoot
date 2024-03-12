@@ -2,7 +2,9 @@ package com.example.SBB.question;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
+import com.example.SBB.user.SiteUser;
 import com.example.SBB.answer.Answer;
 
 import jakarta.persistence.CascadeType;
@@ -13,7 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.ManyToOne;
-import com.example.SBB.user.SiteUser;
+import jakarta.persistence.ManyToMany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,5 +43,10 @@ public class Question {
 	private SiteUser author;
 	
 	private LocalDateTime modifyData;
+	
+	@ManyToMany
+	Set<SiteUser> voter;
+	
+	
 
 }
