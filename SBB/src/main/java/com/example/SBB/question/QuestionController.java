@@ -44,9 +44,8 @@ public class QuestionController {
 	public String list(Model model, @RequestParam(value="page", defaultValue="0") int page,
 			@RequestParam(value = "kw", defaultValue = "") String kw) { 
 		// List<Question> questionList = this.questionRepository.findAll();
-		List<Question> questionList = this.questionService.getList();
-		model.addAttribute("questionList", questionList);
-
+		// List<Question> questionList = this.questionService.getList();
+		// model.addAttribute("questionList", questionList);
 		Page<Question> paging = this.questionService.getList(page, kw);
 		model.addAttribute("paging", paging);
 		model.addAttribute("kw", kw);
